@@ -1,1 +1,1 @@
-This is an phonebook OOD cpp project.
+This is an phonebook cpp OOD project.
