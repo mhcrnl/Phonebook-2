@@ -60,15 +60,37 @@ void Phonebook::addContact(const string& name, const string& phoneType, const st
 
 }
 
-bool Phonebook::deleteContact(const string& name, const string& num) {
 
+vector<string> Phonebook::getNameByNum(const string& num) {
+    vector<string> vec;
+    if (mNum2Phone.find(num) == mNum2Phone.end()) {
+        return vec;
+    }
+    vector<Phone*> phones = mNum2Phone[num];
+    for (size_t i = 0; i < phones.size(); ++i) {
+        const set<int>& personID = phones[i]->getPeoples();
+        for (auto it = personID.begin(); it != personID.end(); ++it) {
+            People* person = mID2People[*it];
+            vec.push_back(person->getName());
+        }
+    }
+    return vec;
 }
 
-vector<string> Phonebook::getNameByNum(const string& num) const {
+vector<string> Phonebook::getPhoneByName(const string& name) {
+    vector<string> vec;
+    if (mName2People.find(name) == mName2People.end()) {
+        return vec;
+    }
 
-}
-
-vector<string> Phonebook::getPhoneByName(const string& name) const {
-
+    vector<People*> persons = mName2People[name];
+    for (size_t i = 0; i < persons.size(); ++i) {
+        const set<int>& phoneID = persons[i]->getPhones();
+        for (auto it = phoneID.begin(); it != phoneID.end(); ++it) {
+            Phone* phone = mID2Phone[*it];
+            vec.push_back(phone->getNum());
+        }
+    }
+    return vec;
 }
 

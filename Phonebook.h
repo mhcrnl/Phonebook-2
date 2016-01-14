@@ -18,8 +18,8 @@ class Phonebook {
     ~Phonebook();
     void addContact(const string& name, const string& phoneType, const string& phoneNum);
     bool deleteContact(const string& name, const string& num);
-    vector<string> getNameByNum(const string& num) const;
-    vector<string> getPhoneByName(const string& name) const;
+    vector<string> getNameByNum(const string& num);
+    vector<string> getPhoneByName(const string& name);
 };
 
 #endif
