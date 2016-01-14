@@ -32,10 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Graph.cpp" />
-		<Unit filename="Graph.h" />
 		<Unit filename="People.cpp" />
 		<Unit filename="People.h" />
+		<Unit filename="Phone.cpp" />
+		<Unit filename="Phone.h" />
+		<Unit filename="Phonebook.cpp" />
+		<Unit filename="Phonebook.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -2,25 +2,27 @@
 #define _PEOPLE_H_
 #include <string>
 #include <vector>
-#include <map>
 #include <set>
 
 using namespace std;
 
 class People {
   private:
-    static long long peopleCount;
+    static int peopleCount;
     int mID;
     string mName;
-    map<string, set<string>> mPhoneNums;
+    set<int> mPhones;
 
   public:
+
     People(const string& name);
-    const map<string, vector<string>>& getPhoneNums() const;
-    const vector<string>& getPhoneNumsByType(const string& phoneType) const;
-    void addPhoneNum(const string& type, const string& num);
-    void editPhoneNum(const string& num);
-    void deletePhoneNum(const string& num);
+    ~People();
+    const string& getName() const;
+    int getID() const;
+    const set<int>& getPhones() const;
+    void addPhone(int id);
+    bool deletePhone(int id);
+    bool hasPhone(int id) const;
 };
 
 
